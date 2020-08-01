@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DAD  | Drag and Drop Plugin </title>
+    <meta name="keywords" content="dad, dag and drop, dag, drop, plugin jquery, plugin, jquery">
+    <meta name="description" content="A simple and awesome drag and drop plugin">
+    <meta property="og:title" content="DAD - drag and drop plugin" />
+    <meta property="og:image" content="http://www.konsolestudio.com.br/dad/og.png" />
+    <meta property="og:description" content="A simple and awesome drag and drop plugin" />
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="font/stylesheet.css">
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="../source/jquery.dad.css">
+</head>
+<body>
+<div class="container">
+    <div id="daddy" class="dad">
+        <div>
+            <div>1</div>
+        </div>
+        <div>
+            <div>2</div>
+        </div>
+        <div>
+            <div>3</div>
+        </div>
+        <div>
+            <div>4</div>
+        </div>
+        <div>
+            <div>5</div>
+        </div>
+    </div>
+</div>
+<script src="jquery.min.js"></script>
+<script src="../source/jquery.dad.js"></script>
+<script>
+$(function () {
+
+  //dad simple demo
+  $('.dad').dad();
+
+  //dad dropzone
+  var d = $('.dad2').dad();
+  d.addDropzone('.dropzone', function (e) {
+    e.remove();
+  });
+
+  //dad activate and deactivate
+  $('.act').on('click', function () {
+    $('.btndemo').not(this).removeClass('active');
+    $(this).addClass('active');
+    d.css('opacity', 1);
+    d.activate();
+  });
+
+  $('.deact').on('click', function () {
+    $('.btndemo').not(this).removeClass('active');
+    $(this).addClass('active');
+    d.css('opacity', 0.5);
+    d.deactivate();
+  });
+
+  $('.dad-draggable').dad({ draggable: '.draggable' });
+
+});
+</script>
+</body>
+</html>
